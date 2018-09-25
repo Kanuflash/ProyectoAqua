@@ -59,7 +59,7 @@ public class EnemyPatrol : MonoBehaviour {
                 isPatrol = false;
             }
             transform.position = Vector3.Lerp(initialPosition, finalPosition, percentageComplete);
-            yield return new WaitForFixedUpdate();
+            yield return new WaitForEndOfFrame();
         }
         
     }
