@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-    [SerializeField]
-    public static GameManager instance = null;
+ 
+    public static GameManager instance;
     public int numLevelsRamdom = 1;
     private int actualLevel = 0;
     private Scene[] scenesProcedurals;
@@ -28,12 +28,20 @@ public class GameManager : MonoBehaviour {
     private void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+            spawnCharacter();
+            DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += SceneWasLoaded;
+        }            
         else if (instance != this)
             Destroy(gameObject);
-        spawnCharacter();
-        DontDestroyOnLoad(gameObject);
-        
+    }
+
+    private void SceneWasLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        GameObject spawnPlayer = GameObject.FindGameObjectWithTag("SpawnPlayer");
+        player.transform.position = spawnPlayer.transform.position;
     }
 
     // Use this for initialization
@@ -103,7 +111,7 @@ public class GameManager : MonoBehaviour {
 
     private void OnLevelWasLoaded(int level)
     {
-        GameObject spawnPlayer = GameObject.FindGameObjectWithTag("SpawnPlayer");
-        player.transform.position = spawnPlayer.transform.position;
+        
+       
     }
 }

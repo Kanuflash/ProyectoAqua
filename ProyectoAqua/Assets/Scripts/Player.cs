@@ -42,10 +42,7 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	Vector2 floatVelocity = new Vector2( 0, 0.5f);
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
+    
     void Start () {
 		rb = gameObject.GetComponent<Rigidbody2D>();
 		animator = gameObject.GetComponent<Animator>();
@@ -53,7 +50,8 @@ public class Player : MonoBehaviour {
 		movementVelocity = new Vector2(0, 0);
 
 		resetFloatVelocity();
-	}
+        DontDestroyOnLoad(gameObject);
+    }
 	
 	// Update is called once per frame
 	void Update () {
