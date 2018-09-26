@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625498af8f73dba4eac80a89eb7af358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathMenu: {fileID: 0}
-  pauseMenu: {fileID: 0}
+  deathMenu: {fileID: 1099769182412788, guid: c5952a5a195769c49bfac5929b2c5f17, type: 2}
+  pauseMenu: {fileID: 1424118485235518, guid: c5952a5a195769c49bfac5929b2c5f17, type: 2}
+  winMenu: {fileID: 1536577471391420, guid: c5952a5a195769c49bfac5929b2c5f17, type: 2}
   collectableHUDText: {fileID: 0}

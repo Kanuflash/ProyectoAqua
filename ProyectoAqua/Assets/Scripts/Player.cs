@@ -31,6 +31,7 @@ public class Player : MonoBehaviour {
     [SerializeField]
 	int friction = 4;
 
+	public bool canBeDamaged = true;
 	Vector2 standarVelocity;
 	Vector2 movementVelocity;
 
@@ -55,47 +56,54 @@ public class Player : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		standarVelocity = floatVelocity;
-		float maxVerticalSpeed = 0, maxHorizontalSpeed = 0;
-		switch(currentLife){
-			case Life.Big:
-				maxVerticalSpeed = maxBigVerticalSpeed;
-				maxHorizontalSpeed = maxBigHorizontalSpeed;
-			break;
-			case Life.Small:
-				maxVerticalSpeed = maxSmallVerticalSpeed;
-				maxHorizontalSpeed = maxSmallHorizontalSpeed;
-			break;
+		if(!GameManager.instance.pause)
+		{
+			standarVelocity = floatVelocity;
+			float maxVerticalSpeed = 0, maxHorizontalSpeed = 0;
+			switch(currentLife){
+				case Life.Big:
+					maxVerticalSpeed = maxBigVerticalSpeed;
+					maxHorizontalSpeed = maxBigHorizontalSpeed;
+				break;
+				case Life.Small:
+					maxVerticalSpeed = maxSmallVerticalSpeed;
+					maxHorizontalSpeed = maxSmallHorizontalSpeed;
+				break;
+			}
+
+			if(Input.GetAxis("Vertical") > 0) movementVelocity += new Vector2(0, speedInterval);
+			else if (Input.GetAxis("Vertical") < 0) movementVelocity -= new Vector2(0, speedInterval);
+			else{
+				if(movementVelocity.y > 0) movementVelocity -= new Vector2(0, speedInterval/friction);
+				else if(movementVelocity.y < 0) movementVelocity += new Vector2(0, speedInterval/friction);
+			}
+
+			if(Input.GetAxis("Horizontal") > 0) movementVelocity += new Vector2(speedInterval, 0);
+			else if (Input.GetAxis("Horizontal") < 0) movementVelocity -= (new Vector2(speedInterval, 0));
+			else{
+				if(movementVelocity.x > 0) movementVelocity -= new Vector2(speedInterval/friction, 0);
+				else if(movementVelocity.x < 0) movementVelocity += new Vector2(speedInterval/friction, 0);
+			}
+
+
+			if( movementVelocity.y > maxVerticalSpeed ) movementVelocity = new Vector2(movementVelocity.x, maxVerticalSpeed);
+			else if( movementVelocity.y < -maxVerticalSpeed ) movementVelocity = new Vector2(movementVelocity.x, -maxVerticalSpeed);
+
+			if( movementVelocity.x > maxHorizontalSpeed ) movementVelocity = new Vector2(maxHorizontalSpeed, movementVelocity.y);
+			else if( movementVelocity.x < -maxHorizontalSpeed ) movementVelocity = new Vector2(-maxHorizontalSpeed, movementVelocity.y);
+
+			switch(currentLife){
+				case Life.Big:
+					rb.velocity = movementVelocity + (standarVelocity *0.25f);
+				break;
+				case Life.Small:
+					rb.velocity = movementVelocity + standarVelocity;
+				break;
+			}
 		}
-
-		if(Input.GetAxis("Vertical") > 0) movementVelocity += new Vector2(0, speedInterval);
-		else if (Input.GetAxis("Vertical") < 0) movementVelocity -= new Vector2(0, speedInterval);
-		else{
-			if(movementVelocity.y > 0) movementVelocity -= new Vector2(0, speedInterval/friction);
-			else if(movementVelocity.y < 0) movementVelocity += new Vector2(0, speedInterval/friction);
-		}
-
-		if(Input.GetAxis("Horizontal") > 0) movementVelocity += new Vector2(speedInterval, 0);
-		else if (Input.GetAxis("Horizontal") < 0) movementVelocity -= (new Vector2(speedInterval, 0));
-		else{
-			if(movementVelocity.x > 0) movementVelocity -= new Vector2(speedInterval/friction, 0);
-			else if(movementVelocity.x < 0) movementVelocity += new Vector2(speedInterval/friction, 0);
-		}
-
-
-		if( movementVelocity.y > maxVerticalSpeed ) movementVelocity = new Vector2(movementVelocity.x, maxVerticalSpeed);
-		else if( movementVelocity.y < -maxVerticalSpeed ) movementVelocity = new Vector2(movementVelocity.x, -maxVerticalSpeed);
-
-		if( movementVelocity.x > maxHorizontalSpeed ) movementVelocity = new Vector2(maxHorizontalSpeed, movementVelocity.y);
-		else if( movementVelocity.x < -maxHorizontalSpeed ) movementVelocity = new Vector2(-maxHorizontalSpeed, movementVelocity.y);
-
-		switch(currentLife){
-			case Life.Big:
-				rb.velocity = movementVelocity + (standarVelocity *0.25f);
-			break;
-			case Life.Small:
-				rb.velocity = movementVelocity + standarVelocity;
-			break;
+		else
+		{
+			rb.velocity = Vector2.zero;
 		}
 	}
 
@@ -104,7 +112,7 @@ public class Player : MonoBehaviour {
 		if(currentLife == Life.Big)
 		{
 			animator.SetBool("Divide", true);
-			transform.localScale *= 0.5f;
+			//transform.localScale *= 0.5f;
 			currentLife = Life.Small;
 		}
 	}
@@ -116,7 +124,7 @@ public class Player : MonoBehaviour {
 		if(currentLife == Life.Small)
 		{
 			animator.SetBool("Grow", true);
-			transform.localScale *= 2f;
+			//transform.localScale *= 2f;
 			currentLife = Life.Big;
 		}
 	}
@@ -124,11 +132,19 @@ public class Player : MonoBehaviour {
 		animator.SetBool("Grow", false);
 	}
 	void die(){
-
+		Debug.Log("Damageee");
+		GameManager.instance.die();
 	}
 	public void receiveDmg(){
-		if(currentLife == Life.Big) divide();
+		if(currentLife == Life.Big){
+			divide();
+			canBeDamaged = false;
+			Invoke("readyToBeDamaged", 2f);
+		} 
 		else die();
+	}
+	public void readyToBeDamaged(){
+		canBeDamaged = true;		
 	}
 
 	public void modifyFloatVelocity(Vector2 vel){

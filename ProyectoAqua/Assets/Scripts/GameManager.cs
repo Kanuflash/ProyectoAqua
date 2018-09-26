@@ -81,6 +81,10 @@ public class GameManager : MonoBehaviour {
         PlayerPrefs.SetInt("Character_" + character, 1);
     }
 
+    public void die(){
+        pause = true;
+        MenuController.instance.showDeathMenu();
+    }
     public void winGame(){
         unlockCharacter(2);
         if(currentCollectables == maxCollectables) unlockCharacter(3);

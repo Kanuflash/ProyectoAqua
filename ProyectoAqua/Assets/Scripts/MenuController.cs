@@ -39,8 +39,9 @@ public class MenuController : MonoBehaviour {
 
 	public void showDeathMenu(){
 		
-		GameManager.instance.pause = true;
+		Debug.Log("Damageee2");
 		deathMenu.SetActive(true);
+		Debug.Log("Damageee2");
 	}
 
 	public void showPauseMenu(){
