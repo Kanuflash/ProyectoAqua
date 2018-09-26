@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grow : MonoBehaviour {
 
-    public float secondToRespawn;
+    public float speed =1;
     private WaitForSeconds waitToSpawn;
     private bool active;
     private Player player;
@@ -12,14 +12,12 @@ public class Grow : MonoBehaviour {
 
     private void Start()
     {
-        active = true;
-        waitToSpawn = new WaitForSeconds(secondToRespawn);
         generateBubble = GetComponentInParent<GenerateBubbles>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && active)
+        if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.N))
         {
             player = collision.GetComponent<Player>();
             GameManager.instance.pause = true;
@@ -37,12 +35,12 @@ public class Grow : MonoBehaviour {
             {
                 continueLoop = false;
             }
-            transform.Translate(player.transform.position * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position,speed * Time.deltaTime);
             yield return new WaitForFixedUpdate();
         }
 
         player.grow();
-        ResetGrow();
+        ResetGrow();       
     }
 
     private void ResetGrow()
@@ -50,6 +48,7 @@ public class Grow : MonoBehaviour {
         if (generateBubble)
         {
             generateBubble.Spawn();
+            Destroy(gameObject);
         }
     }
 }

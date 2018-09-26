@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-	// Use this for initialization
-
+    public GameObject bubbleCopy;
+    private GameObject actualBubbleCopy;
+    // Use this for initialization
+    public Transform copiaBarata;
+    public Transform burbujaBuena;
 
 	public enum Life{Big, Small};
 
@@ -51,7 +54,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.B))divide();
-		if(Input.GetKeyDown(KeyCode.N))grow();
+		//if(Input.GetKeyDown(KeyCode.N))grow();
 	}
 
 	void FixedUpdate()
@@ -118,32 +121,41 @@ public class Player : MonoBehaviour {
 	}
 	void stopDivide(){
 		animator.SetBool("Divide", false);
+        actualBubbleCopy = Instantiate(bubbleCopy, copiaBarata);
+        actualBubbleCopy.transform.parent = null;
+        transform.position = burbujaBuena.position;
 	}
+    void stopDamage()
+    {
+        animator.SetBool("DañoRecibido", false);
+        canBeDamaged = true;
+    }
 
-	public void grow(){
+    public void grow(){
 		if(currentLife == Life.Small)
 		{
 			animator.SetBool("Grow", true);
 			//transform.localScale *= 2f;
 			currentLife = Life.Big;
+            if (actualBubbleCopy)
+                Destroy(actualBubbleCopy);
 		}
 	}
 	void stopGrow(){
+        GameManager.instance.pause = false;
 		animator.SetBool("Grow", false);
 	}
 	void die(){
 		GameManager.instance.die();
 	}
 	public void receiveDmg(){
-		if(currentLife == Life.Big){
-			divide();
+		if(currentLife == Life.Big)
+        {
+            animator.SetBool("DañoRecibido", true);
+            divide();
 			canBeDamaged = false;
-			Invoke("readyToBeDamaged", 2f);
 		} 
 		else die();
-	}
-	public void readyToBeDamaged(){
-		canBeDamaged = true;		
 	}
 
 	public void modifyFloatVelocity(Vector2 vel){
