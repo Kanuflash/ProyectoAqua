@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - SpawnPlayer
   layers:
   - Default
   - TransparentFX
@@ -18,11 +19,11 @@ TagManager:
   - Enemies
   - Pinchos
   - Muro
-  - Alga
+  - Algas
   - Aux
-  - 
-  - 
-  - 
+  - Rocas
+  - Decoracion
+  - Fondo
   - 
   - 
   - 
@@ -38,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Fondo
+    uniqueID: 2194451307
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -55,4 +59,10 @@ TagManager:
     locked: 0
   - name: Alga
     uniqueID: 2762757205
+    locked: 0
+  - name: Rocas
+    uniqueID: 766887283
+    locked: 0
+  - name: Decoracion
+    uniqueID: 432390147
     locked: 0
