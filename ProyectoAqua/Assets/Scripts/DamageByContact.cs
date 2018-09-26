@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class DamageByContact : MonoBehaviour {
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.transform.tag == "Player")
         {
-            collision.GetComponent<Player>().receiveDmg();
+            collision.transform.GetComponent<Player>().receiveDmg();
         }
     }
+   
 }
