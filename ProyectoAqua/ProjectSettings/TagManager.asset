@@ -24,8 +24,8 @@ TagManager:
   - Rocas
   - Decoracion
   - Fondo
-  - 
-  - 
+  - Burbujas
+  - Corrientes
   - 
   - 
   - 
@@ -51,18 +51,27 @@ TagManager:
   - name: Muro
     uniqueID: 1294972279
     locked: 0
-  - name: Enemigos
+  - name: Corrientes
+    uniqueID: 3071252141
+    locked: 0
+  - name: Enemies
     uniqueID: 3697976839
     locked: 0
   - name: Pichos
     uniqueID: 3040655285
     locked: 0
-  - name: Alga
+  - name: Algas
     uniqueID: 2762757205
+    locked: 0
+  - name: Burbujas
+    uniqueID: 3266097719
     locked: 0
   - name: Rocas
     uniqueID: 766887283
     locked: 0
   - name: Decoracion
     uniqueID: 432390147
+    locked: 0
+  - name: Player
+    uniqueID: 423766835
     locked: 0

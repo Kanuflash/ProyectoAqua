@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114359929344450466}
   - component: {fileID: 212889568538635342}
   - component: {fileID: 95019680687003172}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: "BurbujaMalaPeque\xF1a"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
