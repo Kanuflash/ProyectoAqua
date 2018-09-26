@@ -159,7 +159,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 0.5
+  - time: 0.75
     functionName: stopDivide
     data: 
     objectReferenceParameter: {fileID: 1591606477453494, guid: 900eaf32db37bf94bba0ebcc7879e8b9,
