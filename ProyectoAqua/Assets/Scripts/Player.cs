@@ -152,7 +152,7 @@ public class Player : MonoBehaviour {
 		if(currentLife == Life.Big)
         {
             animator.SetBool("DañoRecibido", true);
-            divide();
+			currentLife = Life.Small;
 			canBeDamaged = false;
 		} 
 		else die();

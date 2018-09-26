@@ -31,16 +31,18 @@ public class Grow : MonoBehaviour {
         bool continueLoop = true;
         while (continueLoop)
         {
-            if(transform.position== player.transform.position)
+            yield return new WaitForFixedUpdate();
+            if(transform.position.x == player.transform.position.x && player.transform.position.y == transform.position.y)
             {
                 continueLoop = false;
             }
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position,speed * Time.deltaTime);
-            yield return new WaitForFixedUpdate();
+            
         }
 
         player.grow();
-        ResetGrow();       
+        ResetGrow();    
+        Destroy(gameObject);   
     }
 
     private void ResetGrow()
