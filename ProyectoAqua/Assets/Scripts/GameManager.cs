@@ -13,6 +13,12 @@ public class GameManager : MonoBehaviour {
     private int actualLevel = 0;
     private Scene[] scenesProcedurals;
 
+    [SerializeField]
+    GameObject[] players;
+
+    [SerializeField]
+    Transform startPosition;
+
     public bool pause = false;
     [SerializeField]
 	public int maxCollectables = 0;
@@ -31,14 +37,14 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
-        if (numLevelsRamdom > scenesRamdom.Length)
+        spawnCharacter();
+        /*if (numLevelsRamdom > scenesRamdom.Length)
         {
             numLevelsRamdom = scenesRamdom.Length; 
         }
 
         scenesProcedurals = new Scene[numLevelsRamdom];
-        SetRandomScenes();
+        SetRandomScenes();*/
 
     }
 	
@@ -67,4 +73,16 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    void spawnCharacter(){
+        GameObject player = Instantiate(players[PlayerPrefs.GetInt("SelectedCharacter", 0)], startPosition, false);
+        player.transform.SetParent(null);
+    }
+    public void unlockCharacter(int character){
+        PlayerPrefs.SetInt("Character_" + character, 1);
+    }
+
+    public void winGame(){
+        unlockCharacter(2);
+        if(currentCollectables == maxCollectables) unlockCharacter(3);
+    }
 }

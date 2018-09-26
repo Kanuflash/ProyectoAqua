@@ -9,7 +9,7 @@ public class MenuController : MonoBehaviour {
 
 	public GameObject deathMenu;
 	public GameObject pauseMenu;
-
+	public GameObject winMenu;
 	
 
 	public Text collectableHUDText;
