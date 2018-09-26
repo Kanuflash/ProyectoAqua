@@ -26,7 +26,7 @@ public class EnemyPatrol : MonoBehaviour {
 	void FixedUpdate () {
         if (!isPatrol)
         {
-            NextPatrolPoint();
+            NextPatrolPoint(); 
         }
 	}
 
@@ -45,13 +45,13 @@ public class EnemyPatrol : MonoBehaviour {
     {
         Vector3 initialPosition = transform.position;
         Vector3 finalPosition = patrolPoints[actualPoint].position;
-        float timeStartedLerping = Time.time;
-        float timeSinceStarted = Time.time - timeStartedLerping;
+        float timeSinceStarted = 0;
         float percentageComplete = timeSinceStarted / secondToMoveToPoint;
 
         while (isPatrol)
         {
-            timeSinceStarted = Time.time - timeStartedLerping;
+            yield return new WaitForFixedUpdate();
+            timeSinceStarted += Time.fixedDeltaTime;
             percentageComplete = timeSinceStarted / secondToMoveToPoint;
             if (percentageComplete >= 1)
             {
@@ -59,8 +59,6 @@ public class EnemyPatrol : MonoBehaviour {
                 isPatrol = false;
             }
             transform.position = Vector3.Lerp(initialPosition, finalPosition, percentageComplete);
-            yield return new WaitForEndOfFrame();
         }
-        
     }
 }
