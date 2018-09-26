@@ -15,14 +15,17 @@ public class Grow : MonoBehaviour {
         generateBubble = GetComponentInParent<GenerateBubbles>();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(player == null && collision.tag == "Player" )
+            player = collision.GetComponent<Player>();
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.N))
-        {
-            player = collision.GetComponent<Player>();
+        if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.N) && player.currentLife == Player.Life.Small)
+        {          
             GameManager.instance.pause = true;
-            StartCoroutine(AnimationGrow());
-                    
+            StartCoroutine(AnimationGrow());                  
         }
     }
 

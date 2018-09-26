@@ -31,13 +31,13 @@ public class GameManager : MonoBehaviour {
             instance = this;
         else if (instance != this)
             Destroy(gameObject);
-
+        spawnCharacter();
         DontDestroyOnLoad(gameObject);
     }
 
     // Use this for initialization
     void Start () {
-        spawnCharacter();
+        
         /*if (numLevelsRamdom > scenesRamdom.Length)
         {
             numLevelsRamdom = scenesRamdom.Length; 
