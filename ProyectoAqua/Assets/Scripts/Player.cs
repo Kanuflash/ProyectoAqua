@@ -138,7 +138,7 @@ public class Player : MonoBehaviour {
 			//transform.localScale *= 2f;
 			currentLife = Life.Big;
             if (actualBubbleCopy)
-                Destroy(actualBubbleCopy);
+                actualBubbleCopy.GetComponent<Grow>().DestroyBubble();
 		}
 	}
 	void stopGrow(){

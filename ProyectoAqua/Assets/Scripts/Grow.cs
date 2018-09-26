@@ -9,10 +9,12 @@ public class Grow : MonoBehaviour {
     private bool active;
     private Player player;
     private GenerateBubbles generateBubble;
+    private Animator animator;
 
     private void Start()
     {
         generateBubble = GetComponentInParent<GenerateBubbles>();
+        animator = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,5 +57,18 @@ public class Grow : MonoBehaviour {
             generateBubble.Spawn();
             Destroy(gameObject);
         }
+    }
+
+    public void DestroyBubble()
+    {
+         StopAllCoroutines();
+        if (animator)
+            animator.SetTrigger("Destruction");
+
+    }
+
+    public void DestroyEventAnimation()
+    {
+        Destroy(gameObject);
     }
 }

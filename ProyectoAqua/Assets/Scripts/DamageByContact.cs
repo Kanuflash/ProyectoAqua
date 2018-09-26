@@ -5,8 +5,14 @@ using UnityEngine;
 public class DamageByContact : MonoBehaviour {
 
     float timeToResetVelocity = 0.5f;
+    private Animator animator;
 
     Player player;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -22,6 +28,11 @@ public class DamageByContact : MonoBehaviour {
 
                 Invoke("DelayResetVelocity", timeToResetVelocity);
                 player.modifyFloatVelocity(direction);
+
+                if (animator)
+                {
+                    animator.SetTrigger("Destruction");
+                }
             }
         }
     }
@@ -29,5 +40,10 @@ public class DamageByContact : MonoBehaviour {
     private void DelayResetVelocity()
     {
         player.resetFloatVelocity();
+    }
+
+    public void DestroyEventAnimation()
+    {
+        Destroy(gameObject);
     }
 }
