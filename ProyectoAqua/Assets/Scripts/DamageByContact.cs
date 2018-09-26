@@ -8,8 +8,7 @@ public class DamageByContact : MonoBehaviour {
     {
         if (collision.tag == "Player")
         {
-            //collision.GetComponent<Player>().
-            Destroy(collision.gameObject);
+            collision.GetComponent<Player>().receiveDmg();
         }
     }
 }

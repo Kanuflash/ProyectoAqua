@@ -5,6 +5,8 @@ using UnityEngine;
 public class WaterFall : MonoBehaviour {
 
     public Vector2 direction;
+    public float timeToResetVelocity = 0.5f;
+    private Player player;
     
     // Use this for initialization
 	void Start () {
@@ -15,11 +17,30 @@ public class WaterFall : MonoBehaviour {
         }
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            //collision.GetComponent<Player>().
+            if (player == null)
+            {
+                player = collision.GetComponent<Player>();
+            }
+            player.modifyFloatVelocity(direction);
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+        if (collision.tag == "Player")
+        {
+            Invoke("DelayResetVelocity", timeToResetVelocity);
+            player.modifyFloatVelocity(direction);
+        }
+    }
+
+    private void DelayResetVelocity()
+    {
+        player.resetFloatVelocity();
     }
 }

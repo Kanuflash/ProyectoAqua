@@ -25,8 +25,10 @@ public class Player : MonoBehaviour {
 	float maxSmallVerticalSpeed = 2.5f;
 	[SerializeField]
 	float maxSmallHorizontalSpeed = 3f;
+    [SerializeField]
+    float secondsReturnVelocity = 0.5f;
 
-	[SerializeField]
+    [SerializeField]
 	int friction = 4;
 
 	Vector2 standarVelocity;
@@ -133,7 +135,29 @@ public class Player : MonoBehaviour {
 		floatVelocity = vel;
 	}
 
-	void resetFloatVelocity(){
-		floatVelocity = new Vector2(0, 0.4f);
+	public void resetFloatVelocity(){
+        StartCoroutine(resetVelocityCoroutine());
 	}
+
+    IEnumerator resetVelocityCoroutine()
+    {
+        bool continueLoop = true;
+        Vector2 initialVelocity = floatVelocity;
+        Vector2 finalVelocity = new Vector2(0, 0.4f);
+        float timeSinceStarted = 0;
+        float percentageComplete ;
+
+        while (continueLoop)
+        {
+            yield return new WaitForFixedUpdate();
+            timeSinceStarted += Time.fixedDeltaTime;
+            percentageComplete = timeSinceStarted / secondsReturnVelocity;
+            if (percentageComplete >= 1)
+            {
+                percentageComplete = 1;
+                continueLoop = false;
+            }
+            floatVelocity = Vector2.Lerp(initialVelocity, finalVelocity, percentageComplete);
+        }
+    }
 }
