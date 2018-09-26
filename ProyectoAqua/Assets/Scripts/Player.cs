@@ -120,7 +120,7 @@ public class Player : MonoBehaviour {
 		animator.SetBool("Divide", false);
 	}
 
-	void grow(){
+	public void grow(){
 		if(currentLife == Life.Small)
 		{
 			animator.SetBool("Grow", true);
