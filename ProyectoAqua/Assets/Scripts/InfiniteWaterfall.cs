@@ -5,7 +5,6 @@ using UnityEngine;
 public class InfiniteWaterfall : MonoBehaviour {
 
     public float scrollSpeed;
-    private Vector2 savedOffset;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,6 +12,6 @@ public class InfiniteWaterfall : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", new Vector2(Time.time, 0.0f));
+		transform.GetComponent<Renderer>().sharedMaterial.mainTextureOffset = new Vector2(Time.time* scrollSpeed, 0.0f);
 	}
 }
