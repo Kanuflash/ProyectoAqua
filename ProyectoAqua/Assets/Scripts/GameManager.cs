@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     [SerializeField]
-    public Scene[] scenesRamdom;
     public static GameManager instance = null;
     public int numLevelsRamdom = 1;
     private int actualLevel = 0;
@@ -24,6 +23,7 @@ public class GameManager : MonoBehaviour {
 	public int maxCollectables = 0;
 	[SerializeField]
 	int currentCollectables = 0;
+    GameObject player;
 
     private void Awake()
     {
@@ -33,11 +33,11 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
         spawnCharacter();
         DontDestroyOnLoad(gameObject);
+        
     }
 
     // Use this for initialization
     void Start () {
-        
         /*if (numLevelsRamdom > scenesRamdom.Length)
         {
             numLevelsRamdom = scenesRamdom.Length; 
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour {
 
     }
 	
-    void SetRandomScenes()
+    /*void SetRandomScenes()
     {
         int i = 0;
 
@@ -62,7 +62,8 @@ public class GameManager : MonoBehaviour {
             scenesRamdom[numLevelsRamdom] = value;
             scenesProcedurals[i++] = value;
         }
-    }	
+    }
+    */
 
     public void collect()
     {
@@ -74,7 +75,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void spawnCharacter(){
-        GameObject player = Instantiate(players[PlayerPrefs.GetInt("SelectedCharacter", 0)], startPosition);
+        player = Instantiate(players[PlayerPrefs.GetInt("SelectedCharacter", 0)], startPosition);
         player.transform.SetParent(null);
     }
     public void unlockCharacter(int character){
@@ -88,5 +89,21 @@ public class GameManager : MonoBehaviour {
     public void winGame(){
         unlockCharacter(2);
         if(currentCollectables == maxCollectables) unlockCharacter(3);
+    }
+
+    public void nextLevel()
+    {
+        if(SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings-1)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        else
+        {
+            Debug.Log("you Win!!");
+        }
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        GameObject spawnPlayer = GameObject.FindGameObjectWithTag("SpawnPlayer");
+        player.transform.position = spawnPlayer.transform.position;
     }
 }

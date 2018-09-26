@@ -42,7 +42,11 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	Vector2 floatVelocity = new Vector2( 0, 0.5f);
 
-	void Start () {
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+    void Start () {
 		rb = gameObject.GetComponent<Rigidbody2D>();
 		animator = gameObject.GetComponent<Animator>();
 
