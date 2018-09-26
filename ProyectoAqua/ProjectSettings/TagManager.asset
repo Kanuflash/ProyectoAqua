@@ -19,7 +19,7 @@ TagManager:
   - Pinchos
   - Muro
   - Alga
-  - 
+  - Aux
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Aux
+    uniqueID: 2116983749
     locked: 0
   - name: Muro
     uniqueID: 1294972279
