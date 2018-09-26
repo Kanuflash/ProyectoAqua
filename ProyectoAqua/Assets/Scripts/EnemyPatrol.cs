@@ -45,6 +45,7 @@ public class EnemyPatrol : MonoBehaviour {
     {
         Vector3 initialPosition = transform.position;
         Vector3 finalPosition = patrolPoints[actualPoint].position;
+        transform.LookAt(patrolPoints[actualPoint].position);
         float timeSinceStarted = 0;
         float percentageComplete = timeSinceStarted / secondToMoveToPoint;
 
