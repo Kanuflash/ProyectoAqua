@@ -18,7 +18,7 @@ TagManager:
   - Enemies
   - Pinchos
   - Muro
-  - 
+  - Alga
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: Pichos
     uniqueID: 3040655285
+    locked: 0
+  - name: Alga
+    uniqueID: 2762757205
     locked: 0

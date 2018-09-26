@@ -55,7 +55,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4004292698195098}
   - component: {fileID: 114877355007706022}
-  - component: {fileID: 114005834215578498}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -542,21 +541,6 @@ Transform:
   m_Father: {fileID: 4004292698195098}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114005834215578498
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1089990629727574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 625498af8f73dba4eac80a89eb7af358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathMenu: {fileID: 0}
-  pauseMenu: {fileID: 0}
-  winMenu: {fileID: 0}
-  collectableHUDText: {fileID: 0}
 --- !u!114 &114027340586274372
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -741,9 +725,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625498af8f73dba4eac80a89eb7af358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathMenu: {fileID: 1099769182412788, guid: c5952a5a195769c49bfac5929b2c5f17, type: 2}
-  pauseMenu: {fileID: 1424118485235518, guid: c5952a5a195769c49bfac5929b2c5f17, type: 2}
-  winMenu: {fileID: 1536577471391420, guid: c5952a5a195769c49bfac5929b2c5f17, type: 2}
+  deathMenu: {fileID: 1807033096158784}
+  pauseMenu: {fileID: 1056194785042826}
+  winMenu: {fileID: 1236781673617290}
   collectableHUDText: {fileID: 114329142094852940}
 --- !u!114 &114287176927738146
 MonoBehaviour:

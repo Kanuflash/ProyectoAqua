@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
 	public enum Life{Big, Small};
 
 	[SerializeField]
-	Life currentLife = Life.Big;
+	public Life currentLife = Life.Big;
 
 	Rigidbody2D rb;
 	Animator animator;	
