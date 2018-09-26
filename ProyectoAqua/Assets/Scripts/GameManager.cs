@@ -13,6 +13,12 @@ public class GameManager : MonoBehaviour {
     private int actualLevel = 0;
     private Scene[] scenesProcedurals;
 
+    public bool pause = false;
+    [SerializeField]
+	public int maxCollectables = 0;
+	[SerializeField]
+	int currentCollectables = 0;
+
     private void Awake()
     {
         if (instance == null)
@@ -33,6 +39,7 @@ public class GameManager : MonoBehaviour {
 
         scenesProcedurals = new Scene[numLevelsRamdom];
         SetRandomScenes();
+
     }
 	
     void SetRandomScenes()
@@ -43,11 +50,21 @@ public class GameManager : MonoBehaviour {
         {
             int k = Random.Range(0, numLevelsRamdom);
             numLevelsRamdom--;
+            maxCollectables++;
             Scene value = scenesRamdom[k];
             scenesRamdom[k] = scenesRamdom[numLevelsRamdom];
             scenesRamdom[numLevelsRamdom] = value;
             scenesProcedurals[i++] = value;
         }
     }	
+
+    public void collect()
+    {
+        if(currentCollectables< maxCollectables)
+        {
+            currentCollectables++;
+            MenuController.instance.refreshCollectablesHUD(currentCollectables,maxCollectables);
+        }
+    }
 
 }
