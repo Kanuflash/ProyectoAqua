@@ -16,8 +16,8 @@ TagManager:
   - PostProcessing
   - Player
   - Enemies
-  - 
-  - 
+  - Pinchos
+  - Muro
   - 
   - 
   - 
@@ -40,4 +40,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Muro
+    uniqueID: 1294972279
+    locked: 0
+  - name: Enemigos
+    uniqueID: 3697976839
+    locked: 0
+  - name: Pichos
+    uniqueID: 3040655285
     locked: 0
