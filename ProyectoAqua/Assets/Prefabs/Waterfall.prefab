@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114937528543698036}
   - component: {fileID: 61154099997201508}
   m_Layer: 0
-  m_Name: Corriente
+  m_Name: Waterfall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
