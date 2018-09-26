@@ -10745,6 +10745,11 @@ Prefab:
       propertyPath: m_Name
       value: WaterfallTop (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 23368684167395662, guid: c2b18a17505775044968d58fe2412ced,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e1ab12e966dd28449870818f5896eaea, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2b18a17505775044968d58fe2412ced, type: 2}
   m_IsPrefabAsset: 0
