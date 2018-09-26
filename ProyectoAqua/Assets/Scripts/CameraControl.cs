@@ -9,6 +9,10 @@ public class CameraControl : MonoBehaviour {
     public float rightBound;
     public float topBound;
     public float botBound;
+    public float smoothTimeX;
+    public float smoothTimeY;
+
+    private Vector2 velocity = Vector2.zero;
 
     // Use this for initialization
     void Start () {
@@ -19,11 +23,13 @@ public class CameraControl : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        Vector3 position = new Vector3(playerTransform.position.x, playerTransform.position.y, transform.position.z);
+	void FixedUpdate () {
+        Vector3 position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
-        position.x = Mathf.Clamp(playerTransform.position.x, leftBound, rightBound);
-        position.y = Mathf.Clamp(playerTransform.position.y, botBound, topBound);
+        position.x = Mathf.SmoothDamp(position.x, playerTransform.position.x, ref velocity.x, smoothTimeX );
+        position.y = Mathf.SmoothDamp(position.y, playerTransform.position.y, ref velocity.y, smoothTimeY);
+        position.x = Mathf.Clamp(position.x, leftBound, rightBound);
+        position.y = Mathf.Clamp(position.y, botBound, topBound);
 
         transform.position = position;
     }
