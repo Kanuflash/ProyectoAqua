@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void spawnCharacter(){
-        GameObject player = Instantiate(players[PlayerPrefs.GetInt("SelectedCharacter", 0)], startPosition, false);
+        GameObject player = Instantiate(players[PlayerPrefs.GetInt("SelectedCharacter", 0)], startPosition);
         player.transform.SetParent(null);
     }
     public void unlockCharacter(int character){
