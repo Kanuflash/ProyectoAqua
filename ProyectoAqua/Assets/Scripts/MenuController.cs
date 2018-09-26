@@ -39,7 +39,6 @@ public class MenuController : MonoBehaviour {
 
 	public void showDeathMenu(){
 		
-		Debug.Log("Damageee2");
 		deathMenu.SetActive(true);
 		Debug.Log("Damageee2");
 	}

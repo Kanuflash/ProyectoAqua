@@ -132,7 +132,6 @@ public class Player : MonoBehaviour {
 		animator.SetBool("Grow", false);
 	}
 	void die(){
-		Debug.Log("Damageee");
 		GameManager.instance.die();
 	}
 	public void receiveDmg(){
