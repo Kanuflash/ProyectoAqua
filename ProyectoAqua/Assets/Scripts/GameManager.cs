@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour {
         int i = SceneManager.GetActiveScene().buildIndex;
         if(currentCollectables >= i-1)
         {
-            currentCollectables = i - 1; 
+            currentCollectables = i - 2; 
         }
     }
     // Use this for initialization
