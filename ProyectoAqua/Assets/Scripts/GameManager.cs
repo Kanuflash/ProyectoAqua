@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
     public int numLevelsRamdom = 1;
     private int actualLevel = 0;
     private Scene[] scenesProcedurals;
+    private AudioSource audioSource;
 
     [SerializeField]
     GameObject[] players;
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour {
             spawnCharacter();
             DontDestroyOnLoad(gameObject);
             SceneManager.sceneLoaded += SceneWasLoaded;
+            audioSource = GetComponent<AudioSource>();
         }            
         else if (instance != this)
             Destroy(gameObject);
@@ -101,17 +103,16 @@ public class GameManager : MonoBehaviour {
 
     public void nextLevel()
     {
-        if(SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings-1)
+        if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 1)
+        {
+            audioSource.Play();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
         else
         {
             Debug.Log("you Win!!");
         }
     }
 
-    private void OnLevelWasLoaded(int level)
-    {
-        
-       
-    }
+    
 }
