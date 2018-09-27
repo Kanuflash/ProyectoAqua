@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - SpawnPlayer
+  - BubbleCopyTag
   layers:
   - Default
   - TransparentFX
