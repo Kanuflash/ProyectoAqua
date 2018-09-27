@@ -29,7 +29,7 @@ public class TitleScreen : MonoBehaviour {
 
 	public void onClickSelectGame(int character){
 		PlayerPrefs.SetInt("SelectedCharacter", character);
-		SceneManager.LoadScene("Sergio", LoadSceneMode.Single);
+		SceneManager.LoadScene(1, LoadSceneMode.Single);
 	}
 
 	public void onClickUnlockEverything()

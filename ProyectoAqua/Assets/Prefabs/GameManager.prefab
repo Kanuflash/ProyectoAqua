@@ -152,8 +152,8 @@ MonoBehaviour:
   menuPrefab: {fileID: 1843542290391534, guid: 6a4b895e2a339c44fb5bd835d7265797, type: 2}
   players:
   - {fileID: 1591606477453494, guid: 900eaf32db37bf94bba0ebcc7879e8b9, type: 2}
-  - {fileID: 1591606477453494, guid: 900eaf32db37bf94bba0ebcc7879e8b9, type: 2}
-  - {fileID: 1591606477453494, guid: 900eaf32db37bf94bba0ebcc7879e8b9, type: 2}
+  - {fileID: 1591606477453494, guid: d058bd84809ab7a4aa612c13a7e21521, type: 2}
+  - {fileID: 1591606477453494, guid: cd260acd85a37c648bb01a6417d97626, type: 2}
   startPosition: {fileID: 0}
   pause: 0
   maxCollectables: 0
