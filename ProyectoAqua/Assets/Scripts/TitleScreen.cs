@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class TitleScreen : MonoBehaviour {
 	int numberCharacters = 3;
 
+
 	[SerializeField]
 	GameObject[] characterSelection;
 
@@ -19,7 +20,6 @@ public class TitleScreen : MonoBehaviour {
             Destroy(gb);
             Destroy(pl);
         }
-            
 	}
 
 	void showLevels(){
@@ -30,13 +30,16 @@ public class TitleScreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
+
+
 
 	public void onClickSelectGame(int character){
 		PlayerPrefs.SetInt("SelectedCharacter", character);
-		SceneManager.LoadScene(1, LoadSceneMode.Single);
+		SceneManager.LoadScene("Intro", LoadSceneMode.Single);
+	
 	}
+
 
 	public void onClickUnlockEverything()
 	{
