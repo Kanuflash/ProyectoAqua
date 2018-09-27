@@ -7,8 +7,9 @@ public class Collectable : MonoBehaviour {
 	// Use this for initialization
 	[SerializeField]
 	AudioClip audio;
+    Animator animator;
 	void Start () {
-		
+        animator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -21,7 +22,12 @@ public class Collectable : MonoBehaviour {
 			GameManager.instance.collect();
 			AudioSource.PlayClipAtPoint(audio, transform.position);
 			other.GetComponent<Grow>().DestroyBubble();
-			Destroy(gameObject);
+            animator.SetTrigger("si");
 		}
 	}
+
+    private void destroySystemAnimation()
+    {
+        Destroy(gameObject);
+    }
 }

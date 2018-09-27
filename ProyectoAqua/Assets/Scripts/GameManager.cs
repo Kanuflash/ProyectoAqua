@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance;
     public int numLevelsRamdom = 1;
     public GameObject menuPrefab;
+    private MenuController menu;
     private int actualLevel = 0;
     private Scene[] scenesProcedurals;
     private AudioSource audioSource;
@@ -47,6 +48,7 @@ public class GameManager : MonoBehaviour {
     {
         GameObject spawnPlayer = GameObject.FindGameObjectWithTag("SpawnPlayer");
         player.transform.position = spawnPlayer.transform.position;
+        menu = Instantiate(menuPrefab, transform.position, menuPrefab.transform.rotation).GetComponent<MenuController>();
     }
 
     // Use this for initialization
@@ -83,7 +85,7 @@ public class GameManager : MonoBehaviour {
         if(currentCollectables< maxCollectables)
         {
             currentCollectables++;
-            MenuController.instance.refreshCollectablesHUD(currentCollectables,maxCollectables);
+            menu.refreshCollectablesHUD(currentCollectables,maxCollectables);
         }
     }
 
@@ -97,8 +99,8 @@ public class GameManager : MonoBehaviour {
 
     public void die(){
         pause = true;
-        GameObject gb = Instantiate(menuPrefab, transform.position, menuPrefab.transform.rotation);
-        gb.GetComponent<MenuController>().showDeathMenu();
+       
+        menu.showDeathMenu();
     }
     public void winGame(){
         unlockCharacter(2);
