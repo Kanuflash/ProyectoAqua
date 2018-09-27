@@ -1,9 +1,7 @@
 fileFormatVersion: 2
-guid: 8e3f5758ab111c040b62b9f51d105e53
+guid: 5e65a0adb894e3c4cb47de78752647f1
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: You Win_0
-    21300002: You Win_1
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -84,51 +82,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: You Win_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 300
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a659a2bc3a038b4f8d44cc1f76a22ab
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: You Win_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 300
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a4a534b25e8c14446a0db7ca518dc012
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 317ac8b9338123944b71cec9a83914b4
+    spriteID: feab46cd9edc6684dbd5578947380e80
     vertices: []
     indices: 
     edges: []
