@@ -123,15 +123,12 @@ public class GameManager : MonoBehaviour {
 
     public void nextLevel()
     {
-        if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 3)
+        if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 1)
         {
             audioSource.Play();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        else
-        {
-            Debug.Log("you Win!!");
-        }
+        
     }
 
     
