@@ -88,6 +88,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  joinSound: {fileID: 8300000, guid: 56280ba1fb7701c47bf3817c21038c6d, type: 3}
+  destroySound: {fileID: 8300000, guid: 0360a7da632d26f4a8ba304cdc678322, type: 3}
 --- !u!212 &212247474369275604
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -10,11 +10,15 @@ public class Grow : MonoBehaviour {
     private Player player;
     private GenerateBubbles generateBubble;
     private Animator animator;
+    private AudioSource audioSource;
+    public AudioClip joinSound;
+    public AudioClip destroySound;
 
     private void Start()
     {
         generateBubble = GetComponentInParent<GenerateBubbles>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -34,17 +38,18 @@ public class Grow : MonoBehaviour {
     private IEnumerator AnimationGrow()
     {
         bool continueLoop = true;
+        AudioSource.PlayClipAtPoint(joinSound, transform.position);
         while (continueLoop)
         {
             yield return new WaitForFixedUpdate();
-            if(transform.position.x == player.transform.position.x && player.transform.position.y == transform.position.y)
+            if( Vector2.Distance(transform.position,player.transform.position) < 0.2)
             {
                 continueLoop = false;
             }
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position,speed * Time.deltaTime);
             
         }
-
+           
         player.grow();
         ResetGrow();    
         Destroy(gameObject);   
@@ -63,7 +68,11 @@ public class Grow : MonoBehaviour {
     {
          StopAllCoroutines();
         if (animator)
+        {
+            AudioSource.PlayClipAtPoint(destroySound,transform.position);
             animator.SetTrigger("Destruction");
+        }
+            
 
     }
 

@@ -6,13 +6,19 @@ public class GenerateBubbles : MonoBehaviour {
     public float timeToSpawnBubble;
     public GameObject bubbleGrow;
 
+    private WaitForSeconds waitForSound;
     private WaitForSeconds waitForSpawn;
 
     private void Start()
     {
+        float soundBubble = GameManager.instance.burbujaAlga.length;
+        
+        
         if (bubbleGrow)
         {
-            waitForSpawn = new WaitForSeconds(timeToSpawnBubble);
+            waitForSound = new WaitForSeconds(Mathf.Max(0, timeToSpawnBubble - soundBubble));
+
+            waitForSpawn = new WaitForSeconds(soundBubble);
             Spawn();
         }
         else
@@ -29,6 +35,8 @@ public class GenerateBubbles : MonoBehaviour {
 
     IEnumerator SpawnCoroutine()
     {
+        yield return waitForSound;
+        AudioSource.PlayClipAtPoint(GameManager.instance.burbujaAlga, transform.position);
         yield return waitForSpawn;
 
         Instantiate(bubbleGrow, transform);
