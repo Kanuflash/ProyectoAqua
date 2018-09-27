@@ -373,6 +373,11 @@ MonoBehaviour:
   friction: 4
   canBeDamaged: 1
   floatVelocity: {x: 0, y: 0.4}
+  pasos:
+  - {fileID: 8300000, guid: 492c2efc9dfe8c44cb58bd8dc5790791, type: 3}
+  - {fileID: 8300000, guid: 092f21e9084581043b04c48916768268, type: 3}
+  - {fileID: 8300000, guid: f3c1b9f8a0649674ab160455ad330740, type: 3}
+  timeToSoundPasos: 2
 --- !u!212 &212400607913058710
 SpriteRenderer:
   m_ObjectHideFlags: 1
