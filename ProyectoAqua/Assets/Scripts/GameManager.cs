@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour {
         else if (instance != this)
             Destroy(gameObject);
 
-        maxCollectables = SceneManager.sceneCountInBuildSettings;
+        maxCollectables = SceneManager.sceneCountInBuildSettings - 1;
     }
 
     private void SceneWasLoaded(Scene arg0, LoadSceneMode arg1)

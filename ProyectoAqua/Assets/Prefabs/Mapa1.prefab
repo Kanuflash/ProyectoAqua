@@ -2343,6 +2343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4540753937768902}
   - component: {fileID: 61702728693521684}
+  - component: {fileID: 114997999696798094}
   m_Layer: 0
   m_Name: EndLevel
   m_TagString: Untagged
@@ -5523,7 +5524,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: b073f5835c05e434993514567b46b936, type: 2}
+  - {fileID: 2100000, guid: 6c5d196ecde614946867bf81a03aca14, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5558,7 +5559,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: b073f5835c05e434993514567b46b936, type: 2}
+  - {fileID: 2100000, guid: 6c5d196ecde614946867bf81a03aca14, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7197,6 +7198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToSpawnBubble: 3
   bubbleGrow: {fileID: 1893075535356440, guid: 0cb1e53c608bd3d48b3dd90cf3803c45, type: 2}
+  badBubbles: 0
 --- !u!114 &114746733975846384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7290,6 +7292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToSpawnBubble: 3
   bubbleGrow: {fileID: 1893075535356440, guid: 0cb1e53c608bd3d48b3dd90cf3803c45, type: 2}
+  badBubbles: 0
 --- !u!114 &114950417149626680
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7310,6 +7313,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 896de9fc75b49784d999441484a1bfc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114997999696798094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1787162101694652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7897012bb38f9245a8d0966b8057d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212000848265839422

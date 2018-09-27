@@ -58,7 +58,7 @@ public class MenuController : MonoBehaviour {
 	}
 
 	
-	public void refreshCollectablesHUD(int currentCollectables, int maxCollectables){
+	public void refreshCollectablesHUD(int currentCollectables, int maxCollectables ){
 		collectableHUDText.text = currentCollectables.ToString("00")+ "/" + maxCollectables.ToString("00");
 	}
 }

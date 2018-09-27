@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3014,6 +3014,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &671091077
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4806651223755696, guid: 29055b43d708692409e34cc9e69412da, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.2599416
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806651223755696, guid: 29055b43d708692409e34cc9e69412da, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6.4130545
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806651223755696, guid: 29055b43d708692409e34cc9e69412da, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806651223755696, guid: 29055b43d708692409e34cc9e69412da, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806651223755696, guid: 29055b43d708692409e34cc9e69412da, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806651223755696, guid: 29055b43d708692409e34cc9e69412da, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806651223755696, guid: 29055b43d708692409e34cc9e69412da, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806651223755696, guid: 29055b43d708692409e34cc9e69412da, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 29055b43d708692409e34cc9e69412da, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &683537727
 GameObject:
   m_ObjectHideFlags: 0
@@ -3243,7 +3285,7 @@ Transform:
   - {fileID: 897636561}
   - {fileID: 726227845}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &731987888 stripped
 Transform:
@@ -6468,6 +6510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToSpawnBubble: 3
   bubbleGrow: {fileID: 1893075535356440, guid: 0cb1e53c608bd3d48b3dd90cf3803c45, type: 2}
+  badBubbles: 0
 --- !u!4 &1177842931
 Transform:
   m_ObjectHideFlags: 0

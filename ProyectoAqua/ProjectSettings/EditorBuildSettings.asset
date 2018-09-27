@@ -15,12 +15,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Sergio.unity
     guid: 0bfe0cc713599244d8aa0a9eff1f7bae
   - enabled: 1
-    path: Assets/Mapa1.unity
+    path: Assets/Scenes/Mapa1.unity
     guid: 498f7ac0e9080b94fadd2d0cae56f900
   - enabled: 1
-    path: Assets/Mapa2.unity
+    path: Assets/Scenes/Mapa2.unity
     guid: 60df70ddc3c09af47bfb66ba50f452bf
   - enabled: 1
     path: Assets/Scenes/Scene_S2.unity
     guid: 8ce13c1784e1bde4d92ab23ff16a4fb7
+  - enabled: 1
+    path: Assets/Scenes/Scene_S3.unity
+    guid: 658d251d5ee18624081fe0e0190c7fd4
+  - enabled: 1
+    path: Assets/Scenes/Mapa3.unity
+    guid: 69c2307d66f5f1d499ba32567139d0c9
   m_configObjects: {}
