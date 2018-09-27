@@ -16,6 +16,7 @@ public class BadBubbleMove : MonoBehaviour {
 		rb = transform.GetComponent<Rigidbody2D>();
 		rb.velocity = new Vector2(0, speed);
         animator = GetComponent<Animator>();
+
 	}
 	
 	// Update is called once per frame
@@ -46,8 +47,9 @@ public class BadBubbleMove : MonoBehaviour {
         }
 		else if (animator)
         {
-		}
-			animator.SetTrigger("Destruction");
+            animator.SetTrigger("Destruction");
+        }
+			
     }
    
     private void DelayResetVelocity()

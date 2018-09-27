@@ -28,8 +28,8 @@ public class MenuController : MonoBehaviour {
 	
 	public void onClickRetry(){
 		GameManager.instance.pause = false;
-		
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        GameManager.instance.player.GetComponent<Player>().grow();
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
 	public void onClickTitleScreen(){

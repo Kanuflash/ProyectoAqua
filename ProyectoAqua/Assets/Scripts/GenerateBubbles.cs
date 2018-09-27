@@ -5,6 +5,7 @@ using UnityEngine;
 public class GenerateBubbles : MonoBehaviour {
     public float timeToSpawnBubble;
     public GameObject bubbleGrow;
+    public bool badBubbles = false;
 
     private WaitForSeconds waitForSound;
     private WaitForSeconds waitForSpawn;
@@ -12,7 +13,11 @@ public class GenerateBubbles : MonoBehaviour {
     private void Start()
     {
         float soundBubble = GameManager.instance.burbujaAlga.length;
-        
+
+        if (badBubbles)
+        {
+            InvokeRepeating("Spawn",0, timeToSpawnBubble);
+        }
         
         if (bubbleGrow)
         {
