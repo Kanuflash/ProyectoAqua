@@ -51,10 +51,20 @@ public class GameManager : MonoBehaviour {
         {
             player.transform.position = spawnPlayer.transform.position;
             menu = Instantiate(menuPrefab, transform.position, menuPrefab.transform.rotation).GetComponent<MenuController>();
+            ActualiceCollectables();
+            menu.refreshCollectablesHUD(currentCollectables, maxCollectables);
         }
             
     }
 
+    private void ActualiceCollectables()
+    {
+        int i = SceneManager.GetActiveScene().buildIndex;
+        if(currentCollectables >= i-1)
+        {
+            currentCollectables = i - 1; 
+        }
+    }
     // Use this for initialization
     void Start () {
         /*if (numLevelsRamdom > scenesRamdom.Length)
@@ -113,7 +123,7 @@ public class GameManager : MonoBehaviour {
 
     public void nextLevel()
     {
-        if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 1)
+        if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 3)
         {
             audioSource.Play();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
