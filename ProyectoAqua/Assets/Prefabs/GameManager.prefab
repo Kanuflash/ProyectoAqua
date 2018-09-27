@@ -496,7 +496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1939789646079714
 GameObject:
   m_ObjectHideFlags: 1
@@ -1819,8 +1819,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f53373df4ed764dad7d2370642a011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  burbujaAlga: {fileID: 0}
   numLevelsRamdom: 1
   players:
+  - {fileID: 1591606477453494, guid: 900eaf32db37bf94bba0ebcc7879e8b9, type: 2}
+  - {fileID: 1591606477453494, guid: 900eaf32db37bf94bba0ebcc7879e8b9, type: 2}
   - {fileID: 1591606477453494, guid: 900eaf32db37bf94bba0ebcc7879e8b9, type: 2}
   startPosition: {fileID: 0}
   pause: 0
@@ -2215,7 +2218,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.31100002, y: 0.06320169}
   m_AnchorMax: {x: 0.69136405, y: 0.1891933}
-  m_AnchoredPosition: {x: -0.000045776367, y: -0.89178467}
+  m_AnchoredPosition: {x: -0.000061035156, y: -0.89178467}
   m_SizeDelta: {x: -1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224137640364690034
