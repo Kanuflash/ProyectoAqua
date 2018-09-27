@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
- 
+    public AudioClip burbujaAlga;
     public static GameManager instance;
     public int numLevelsRamdom = 1;
     private int actualLevel = 0;

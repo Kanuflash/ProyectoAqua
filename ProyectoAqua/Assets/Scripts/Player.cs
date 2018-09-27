@@ -9,8 +9,9 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     public Transform copiaBarata;
     public Transform burbujaBuena;
-
-	public enum Life{Big, Small};
+    public AudioClip divideSound;
+    public AudioClip damageSound;
+    public enum Life{Big, Small};
 
 	[SerializeField]
 	public Life currentLife = Life.Big;
@@ -42,14 +43,19 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	Vector2 floatVelocity = new Vector2( 0, 0.5f);
 
+    public AudioClip[] pasos;
+    public float timeToSoundPasos =2;
+    private float actualTimeToSoundPasos;
+
     
     void Start () {
 		rb = gameObject.GetComponent<Rigidbody2D>();
 		animator = gameObject.GetComponent<Animator>();
 
 		movementVelocity = new Vector2(0, 0);
+        actualTimeToSoundPasos = timeToSoundPasos;
 
-		resetFloatVelocity();
+        resetFloatVelocity();
         DontDestroyOnLoad(gameObject);
     }
 	
@@ -105,6 +111,16 @@ public class Player : MonoBehaviour {
 					rb.velocity = movementVelocity + standarVelocity;
 				break;
 			}
+            if(Input.GetAxis("Vertical") > 0 || Input.GetAxis("Horizontal") > 0)
+            {
+                actualTimeToSoundPasos -= Time.fixedDeltaTime;
+                if (actualTimeToSoundPasos < 0)
+                {
+                    actualTimeToSoundPasos = timeToSoundPasos;
+                    AudioSource.PlayClipAtPoint(pasos[Random.Range(0, pasos.Length)], transform.position,0.5f);
+                }
+            }
+            
 		}
 		else
 		{
@@ -116,6 +132,7 @@ public class Player : MonoBehaviour {
 	void divide(){
 		if(currentLife == Life.Big)
 		{
+            AudioSource.PlayClipAtPoint(divideSound,transform.position);
 			animator.SetBool("Divide", true);
 			//transform.localScale *= 0.5f;
 			currentLife = Life.Small;
@@ -153,6 +170,7 @@ public class Player : MonoBehaviour {
 	public void receiveDmg(){
 		if(currentLife == Life.Big)
         {
+            AudioSource.PlayClipAtPoint(damageSound, transform.position);
             animator.SetBool("DañoRecibido", true);
 			currentLife = Life.Small;
 			canBeDamaged = false;
