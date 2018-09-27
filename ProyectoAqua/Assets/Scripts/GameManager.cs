@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     public AudioClip burbujaAlga;
     public static GameManager instance;
     public int numLevelsRamdom = 1;
+    public GameObject menuPrefab;
     private int actualLevel = 0;
     private Scene[] scenesProcedurals;
     private AudioSource audioSource;
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour {
 	public int maxCollectables = 0;
 	[SerializeField]
 	int currentCollectables = 0;
-    GameObject player;
+    public GameObject player;
 
     private void Awake()
     {
@@ -96,7 +97,8 @@ public class GameManager : MonoBehaviour {
 
     public void die(){
         pause = true;
-        MenuController.instance.showDeathMenu();
+        GameObject gb = Instantiate(menuPrefab, transform.position, menuPrefab.transform.rotation);
+        gb.GetComponent<MenuController>().showDeathMenu();
     }
     public void winGame(){
         unlockCharacter(2);

@@ -17380,48 +17380,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4999047947768602, guid: d5493dc50739a0543bf92b8aa0834dd5,
     type: 2}
   m_PrefabInternal: {fileID: 1878078107}
---- !u!1001 &1878365441
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4916588063701622, guid: 6a4b895e2a339c44fb5bd835d7265797, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.0413208
-      objectReference: {fileID: 0}
-    - target: {fileID: 4916588063701622, guid: 6a4b895e2a339c44fb5bd835d7265797, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.0413399
-      objectReference: {fileID: 0}
-    - target: {fileID: 4916588063701622, guid: 6a4b895e2a339c44fb5bd835d7265797, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 2.6909719
-      objectReference: {fileID: 0}
-    - target: {fileID: 4916588063701622, guid: 6a4b895e2a339c44fb5bd835d7265797, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4916588063701622, guid: 6a4b895e2a339c44fb5bd835d7265797, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4916588063701622, guid: 6a4b895e2a339c44fb5bd835d7265797, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4916588063701622, guid: 6a4b895e2a339c44fb5bd835d7265797, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4916588063701622, guid: 6a4b895e2a339c44fb5bd835d7265797, type: 2}
-      propertyPath: m_RootOrder
-      value: 17
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6a4b895e2a339c44fb5bd835d7265797, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &1881693884
 GameObject:
   m_ObjectHideFlags: 0
@@ -18276,7 +18234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burbujaAlga: {fileID: 8300000, guid: 01bb9668a8cd063478b203150d95f53b, type: 3}
   numLevelsRamdom: 1
-  menuPrefab: {fileID: 0}
+  menuPrefab: {fileID: 1843542290391534, guid: 6a4b895e2a339c44fb5bd835d7265797, type: 2}
   players:
   - {fileID: 1591606477453494, guid: 900eaf32db37bf94bba0ebcc7879e8b9, type: 2}
   - {fileID: 1591606477453494, guid: 900eaf32db37bf94bba0ebcc7879e8b9, type: 2}
@@ -18285,6 +18243,7 @@ MonoBehaviour:
   pause: 0
   maxCollectables: 0
   currentCollectables: 0
+  player: {fileID: 0}
 --- !u!4 &1960788289
 Transform:
   m_ObjectHideFlags: 0

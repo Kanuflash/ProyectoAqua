@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd4bda5f4c7683459cb84b0b473a4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubbleCopy: {fileID: 1893075535356440, guid: 0cb1e53c608bd3d48b3dd90cf3803c45, type: 2}
+  bubbleCopy: {fileID: 1893075535356440, guid: 529cf7b719b8ebd418542da25e0081b2, type: 2}
   copiaBarata: {fileID: 4723835613581304}
   burbujaBuena: {fileID: 4743748291565714}
   divideSound: {fileID: 8300000, guid: 0360a7da632d26f4a8ba304cdc678322, type: 3}
