@@ -47,8 +47,12 @@ public class GameManager : MonoBehaviour {
     private void SceneWasLoaded(Scene arg0, LoadSceneMode arg1)
     {
         GameObject spawnPlayer = GameObject.FindGameObjectWithTag("SpawnPlayer");
-        player.transform.position = spawnPlayer.transform.position;
-        menu = Instantiate(menuPrefab, transform.position, menuPrefab.transform.rotation).GetComponent<MenuController>();
+        if (spawnPlayer && player)
+        {
+            player.transform.position = spawnPlayer.transform.position;
+            menu = Instantiate(menuPrefab, transform.position, menuPrefab.transform.rotation).GetComponent<MenuController>();
+        }
+            
     }
 
     // Use this for initialization

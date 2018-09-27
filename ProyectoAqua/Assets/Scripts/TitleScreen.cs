@@ -13,7 +13,13 @@ public class TitleScreen : MonoBehaviour {
 	void Start () {
 		characterSelection[0].SetActive(true);
 		showLevels();
-
+        GameObject gb = GameObject.Find("GameManager");
+        GameObject pl = GameObject.FindGameObjectWithTag("Player");
+        if (gb) { 
+            Destroy(gb);
+            Destroy(pl);
+        }
+            
 	}
 
 	void showLevels(){
